@@ -36,7 +36,15 @@ class Program
         string outputFilePath = $"DutyRoster_{monthYear.Replace(" ", "_")}.txt";
         SaveDutyRoster(dutyRoster, monthYear, outputFilePath);
 
-        Console.WriteLine($"Duty roster generated successfully: {outputFilePath}");
+        Console.WriteLine($"Duty roster generated successfully: {outputFilePath}\n");
+
+        // Print the roster to the console
+        Console.WriteLine($"Duty Roster for {monthYear}");
+        Console.WriteLine(new string('-', 30));
+        foreach (var entry in dutyRoster)
+        {
+            Console.WriteLine($"{entry.Key}: {entry.Value}");
+        }
     }
 
     static List<string> LoadFile(string filePath)
